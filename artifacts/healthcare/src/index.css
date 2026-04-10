@@ -1,0 +1,203 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+@plugin "@tailwindcss/typography";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --color-background: hsl(var(--background));
+  --color-foreground: hsl(var(--foreground));
+  --color-border: hsl(var(--border));
+  --color-input: hsl(var(--input));
+  --color-ring: hsl(var(--ring));
+  --color-primary: hsl(var(--primary));
+  --color-primary-foreground: hsl(var(--primary-foreground));
+  --color-secondary: hsl(var(--secondary));
+  --color-secondary-foreground: hsl(var(--secondary-foreground));
+  --color-destructive: hsl(var(--destructive));
+  --color-destructive-foreground: hsl(var(--destructive-foreground));
+  --color-muted: hsl(var(--muted));
+  --color-muted-foreground: hsl(var(--muted-foreground));
+  --color-accent: hsl(var(--accent));
+  --color-accent-foreground: hsl(var(--accent-foreground));
+  --color-popover: hsl(var(--popover));
+  --color-popover-foreground: hsl(var(--popover-foreground));
+  --color-card: hsl(var(--card));
+  --color-card-foreground: hsl(var(--card-foreground));
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+}
+
+:root {
+  --background: 204 100% 98%;
+  --foreground: 204 50% 10%;
+  --border: 204 30% 90%;
+  --input: 204 30% 90%;
+  --ring: 204 100% 40%;
+  --primary: 195 100% 40%;
+  --primary-foreground: 0 0% 100%;
+  --secondary: 172 100% 35%;
+  --secondary-foreground: 0 0% 100%;
+  --destructive: 0 84% 60%;
+  --destructive-foreground: 0 0% 100%;
+  --muted: 204 30% 95%;
+  --muted-foreground: 204 20% 40%;
+  --accent: 172 100% 35%;
+  --accent-foreground: 0 0% 100%;
+  --popover: 0 0% 100%;
+  --popover-foreground: 204 50% 10%;
+  --card: 0 0% 100%;
+  --card-foreground: 204 50% 10%;
+  --radius: 12px;
+}
+
+.dark {
+  --background: 204 50% 10%;
+  --foreground: 204 30% 95%;
+  --border: 204 30% 20%;
+  --input: 204 30% 20%;
+  --ring: 204 100% 40%;
+  --primary: 195 100% 40%;
+  --primary-foreground: 0 0% 100%;
+  --secondary: 172 100% 35%;
+  --secondary-foreground: 0 0% 100%;
+  --destructive: 0 84% 60%;
+  --destructive-foreground: 0 0% 100%;
+  --muted: 204 30% 15%;
+  --muted-foreground: 204 20% 60%;
+  --accent: 172 100% 35%;
+  --accent-foreground: 0 0% 100%;
+  --popover: 204 50% 10%;
+  --popover-foreground: 204 30% 95%;
+  --card: 204 50% 10%;
+  --card-foreground: 204 30% 95%;
+}
+
+body {
+  background: linear-gradient(135deg, #0f4c75, #1b6ca8 40%, #0d7377 75%, #14a085);
+  background-attachment: fixed;
+  color: white;
+  font-family: 'Inter', sans-serif;
+  min-height: 100dvh;
+}
+
+.glass-card {
+  background: rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  border-radius: 20px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.2);
+  color: white;
+}
+
+.glass-input {
+  background: rgba(255, 255, 255, 0.1);
+  color: white;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 10px;
+}
+.glass-input:focus {
+  border-color: white;
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(255,255,255,0.2);
+}
+
+.btn-primary {
+  background: linear-gradient(to right, #00b4db, #0083b0);
+  border-radius: 12px;
+  color: white;
+  border: none;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 180, 219, 0.4);
+}
+
+.btn-secondary {
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid white;
+  border-radius: 12px;
+  color: white;
+  transition: background 0.2s;
+}
+.btn-secondary:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.btn-danger {
+  background: linear-gradient(to right, #ef4444, #dc2626);
+  border-radius: 12px;
+  color: white;
+  border: none;
+  transition: transform 0.2s;
+}
+.btn-danger:hover {
+  transform: translateY(-2px);
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+/* Page Transition */
+.page-transition-enter {
+  opacity: 0;
+}
+.page-transition-enter-active {
+  opacity: 1;
+  transition: opacity 0.25s;
+}
+.page-transition-exit {
+  opacity: 1;
+}
+.page-transition-exit-active {
+  opacity: 0;
+  transition: opacity 0.25s;
+}
+
+/* Blobs */
+.blob {
+  position: fixed;
+  filter: blur(80px);
+  z-index: -1;
+  border-radius: 50%;
+  animation: float 20s infinite ease-in-out;
+  opacity: 0.5;
+}
+.blob-1 { top: -10%; left: -10%; width: 40vw; height: 40vw; background: #0f4c75; animation-delay: 0s; }
+.blob-2 { top: 40%; right: -10%; width: 35vw; height: 35vw; background: #14a085; animation-delay: -5s; }
+.blob-3 { bottom: -20%; left: 20%; width: 45vw; height: 45vw; background: #0d7377; animation-delay: -10s; }
+
+@keyframes float {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  33% { transform: translate(5%, 5%) scale(1.1); }
+  66% { transform: translate(-5%, 10%) scale(0.9); }
+}
+
+.status-green { color: #10b981; }
+.status-yellow { color: #f59e0b; }
+.status-red { color: #ef4444; }
+.status-blue { color: #3b82f6; }
+.status-gray { color: #6b7280; }
+
+.hover-card {
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.hover-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3);
+}

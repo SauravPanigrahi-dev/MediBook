@@ -1,18 +1,34 @@
-# See https://docs.github.com/en/get-started/getting-started-with-git/ignoring-files for more about ignoring files.
-
-# compiled output
-dist
-tmp
-out-tsc
+# ── Compiled output ───────────────────────────────────────────────────────────
+dist/
+tmp/
+out-tsc/
 *.tsbuildinfo
-.expo
-.expo-shared
 
-# dependencies
-node_modules
+# ── Dependencies ──────────────────────────────────────────────────────────────
+node_modules/
 
-# IDEs and editors
-/.idea
+# ── Environment variables (NEVER commit these) ────────────────────────────────
+.env
+.env.*
+!.env.example
+
+# ── Large / unnecessary assets ────────────────────────────────────────────────
+attached_assets/
+
+# ── Replit-specific files ─────────────────────────────────────────────────────
+.replit
+.replitignore
+.gitattributes
+.cache/
+.local/
+.agents/
+.config/
+.npmrc
+replit.md
+artifacts/mockup-sandbox/
+
+# ── IDEs ──────────────────────────────────────────────────────────────────────
+.idea/
 .project
 .classpath
 .c9/
@@ -20,30 +36,26 @@ node_modules
 .settings/
 *.sublime-workspace
 
-# IDE - VSCode
+# ── VS Code (keep useful settings, ignore personal/machine-specific) ──────────
 .vscode/*
 !.vscode/settings.json
 !.vscode/tasks.json
 !.vscode/launch.json
 !.vscode/extensions.json
 
-# misc
-/.sass-cache
-/connect.lock
-/coverage
-/libpeerconnection.log
-npm-debug.log
-yarn-error.log
-testem.log
-/typings
-
-# System Files
+# ── System files ──────────────────────────────────────────────────────────────
 .DS_Store
 Thumbs.db
 
-.cursor/rules/nx-rules.mdc
-.github/instructions/nx.instructions.md
+# ── Logs ──────────────────────────────────────────────────────────────────────
+*.log
+npm-debug.log
+yarn-error.log
+testem.log
 
-# Replit
-.cache/
-.local/
+# ── Misc ──────────────────────────────────────────────────────────────────────
+.sass-cache/
+coverage/
+/typings
+.expo/
+.expo-shared/
